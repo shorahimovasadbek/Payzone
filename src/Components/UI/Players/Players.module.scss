@@ -1,0 +1,163 @@
+@import "styles/mixins.scss";
+
+.players {
+  @include direction-column;
+  gap: 20px;
+  // background-color: #00122a;
+
+  .buttons {
+    display: flex;
+    gap: 50px;
+    padding: 20px 15px;
+    border-bottom: 1px solid #7efd0036;
+    border-top: 1px solid #7efd0036;
+
+    .btn {
+      border-radius: 10px;
+      font-weight: 600;
+      position: relative;
+      transform: skewX(-20deg);
+      padding: 20px !important;
+
+      &_content {
+        transform: skew(20deg);
+        font-family: Orbitron;
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 22.12px;
+      }
+    }
+
+    p {
+      display: flex;
+      align-items: center;
+      color: #fff;
+      font-family: Orbitron;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 22.12px;
+    }
+  }
+
+  &_wrapper {
+    .tablerow {
+      background: #00122a;
+      padding: 0 20px;
+
+      &_content {
+        color: #a4a4a4;
+        text-transform: capitalize;
+        font-weight: 500;
+        font-size: 18px;
+      }
+    }
+
+    .img_wrapper {
+      border-radius: 50%;
+      @include element-center;
+      width: 58px;
+      height: 58px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .gamerName {
+      h1 {
+        color: #00d44a;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+
+      span {
+        color: #8fa877;
+        font-weight: 500;
+      }
+    }
+
+    .payment {
+      @include align-items-center;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .place {
+      position: absolute;
+      top: -5px;
+      left: 0px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .buttons {
+      gap: 40px;
+      padding: 20px 15px;
+
+      .btn {
+        &_content {
+          transform: skew(20deg);
+          font-size: 12px;
+        }
+      }
+
+      p {
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        color: #fff;
+      }
+    }
+
+    &_wrapper {
+      .tablerow {
+        background-color: #00122a;
+        padding: 0 20px;
+
+        &_content {
+          color: #a4a4a4;
+          text-transform: capitalize;
+          font-weight: 500;
+          font-size: 18px;
+        }
+      }
+
+      .img_wrapper {
+        width: 41px;
+        height: 41px;
+      }
+
+      .gamerName {
+        h1 {
+          color: #00d44a;
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 1px;
+        }
+
+        span {
+          color: #8fa877;
+          font-weight: 500;
+          font-size: 10px;
+        }
+      }
+
+      .payment {
+        @include align-items-center;
+        gap: 8px;
+        font-size: 18px;
+      }
+
+      .place {
+        position: absolute;
+        top: -5px;
+        left: 0px;
+      }
+    }
+  }
+}

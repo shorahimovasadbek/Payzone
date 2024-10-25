@@ -1,0 +1,41 @@
+@import "styles/mixins.scss";
+
+.marquee {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  height: 60px;
+  border: 1px solid #ffffff33;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.084) 0%,
+    rgba(217, 217, 217, 0.042) 100%
+  );
+
+  &__item {
+    padding-left: 100px;
+
+    h2 {
+      color: white;
+      @include element-center;
+      gap: 10px;
+      text-transform: capitalize;
+    }
+  }
+}
+
+@media screen and (max-width: 678px) {
+  .marquee {
+    height: 60px;
+
+    .marquee__item {
+      padding-left: 30px;
+    }
+
+    h1 {
+      font-size: 18px;
+    }
+  }
+}

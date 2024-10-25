@@ -1,0 +1,57 @@
+@import "styles/mixins.scss";
+
+.inputWrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: transparent;
+  height: rem(48);
+  padding: 2px 2px 2px 21px !important;
+  transition: border 0.25s linear;
+  overflow: hidden;
+  column-gap: rem(12);
+  border-radius: 20px;
+  width: 400px;
+  border: 1px solid rgba(255, 255, 255, 0.361);
+
+  &:hover,
+  &:focus-visible,
+  &:active {
+    transition: border 0.25s linear;
+  }
+  input {
+    background-color: transparent;
+    font-weight: 400;
+    font-size: rem(20);
+    line-height: rem(24);
+    outline: none;
+    height: rem(28);
+    width: 100%;
+    color: #fff;
+    padding: 0 !important;
+    border: none;
+    &::placeholder {
+      color: #9F9F9F;
+      font-weight: 400;
+      font-size: rem(20);
+      line-height: rem(24);
+    }
+  }
+
+  span{
+    padding: 10px 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    background: linear-gradient(77.5deg, #00D44A -31.33%, #11E35A -19.3%, #0AB847 -4.45%, #0FB849 11.89%, #25B758 29.28%, #00D44A 47.54%, #29FE73 66.2%, #3FFF82 81.84%);
+  }
+
+  @media screen and (max-width:1000px) {
+    width: 350px;
+  }
+  @media screen and (max-width: 830px) {
+    width: 300px;
+  }
+  @media screen and (max-width: 760px) {
+    display: none;
+  }
+}

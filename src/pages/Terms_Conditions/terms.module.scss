@@ -1,0 +1,25 @@
+.wrapper_father {
+    background-color: #00172b;
+    .wrapper {
+        padding: 30px 0;
+        color: #fff;
+        font-family: "Montserrat", sans-serif;
+
+        h1 {
+            text-align: center;
+            padding: 50px 0;
+            font-family: "Orbitron", sans-serif;
+        }
+
+        &_Uppercase{
+            font-weight: bold;
+        }
+
+        &_tabs{
+            margin-left: 30px;
+            &_inside{
+                margin-left: 55px;
+            }
+        }
+    }
+}

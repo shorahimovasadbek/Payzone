@@ -1,0 +1,184 @@
+@import "styles/mixins.scss";
+
+.navbar {
+    @include justify-content-between;
+    align-items: center;
+  
+    &_items {
+      @include align-items-center;
+      gap: 80px;
+  
+      &_wrapper{
+        @include align-items-center;
+        gap: 11px;
+  
+        .header {
+          height: 85px;
+          width: 100%;
+          position: fixed;
+          top: 0;
+          z-index: 1000;
+          @include element-center;
+          transition: all 0.2s ease-in-out;
+        }
+    
+        .item {
+          position: relative;
+          list-style: none;
+          cursor: pointer;
+          @include align-items-center;
+          gap: 10px;
+          font-size: 18px;
+          color: #ffffff;
+          
+          
+          &_wrapper {
+            background: linear-gradient(158.34deg, rgba(255, 255, 255, 0.1) 6.53%, rgba(91, 91, 91, 0.1) 92.78%);
+            @include justify-content-between;
+            align-items: center;
+            gap: 5px;
+            padding: 10px 15px 10px 15px;
+            border-radius: 25px;
+            position: relative;
+    
+            .iconrow {
+              @include element-center;
+              padding-top: 3px;
+            }
+          }
+    
+          &:hover {
+            .childList {
+              @include direction-column;
+              padding-top: 28px;
+    
+              ul {
+                @include direction-column;
+                z-index: 1000 !important;
+              }
+            }
+          }
+    
+          a {
+            transition: all 0.3s ease;
+          }
+    
+          .childList {
+            display: none;
+            perspective: 1000px;
+            position: absolute;
+            top: 20px;
+            left: 10px;
+            z-index: 99;
+            cursor: pointer;
+            animation: downOut 400ms ease-in-out forwards;
+            transform-origin: center center;
+    
+            @media (max-width: 1000px) {
+              right: 0;
+            }
+            ul {
+              background: #00122A;
+              border-radius: 10px;
+              @include direction-column;
+              padding: 12px;
+              .childItems {
+                @include align-items-center;
+                justify-content: space-between;
+                gap: 10px;
+                &:first-child {
+                  border-bottom: 1px solid #e0e0e0;
+                  padding-bottom: 6px;
+                  margin-bottom: 6px;
+                }
+                &:last-child {
+                  border-top: 1px solid #e0e0e0;
+                  padding-top: 6px;
+                  margin-top: 6px;
+                }
+    
+                a {
+                  display: flex;
+                  align-items: center;
+                  position: relative;
+                  background-color: transparent;
+                  font-weight: 400;
+                  line-height: 24px;
+                  color: #fff;
+                  &:hover {
+                    svg {
+                      opacity: 1;
+                      transform: translateX(0);
+                    }
+                  }
+                  svg {
+                    opacity: 0;
+                    color: #fff;
+                    position: absolute;
+                    right: 5px;
+                    font-size: 16px;
+                    transform: translateX(-20px);
+                    transition: all 0.3s ease;
+                  }
+                }
+              }
+            }
+          }
+        }
+  
+        &_buttons{
+          display: flex;
+    
+    
+          .registerButtons{
+            display: flex;
+            gap: 11px;
+    
+            .registerbutton{
+              border-radius: 10px; 
+              padding: 11px 26px 11px 26px;
+            }
+          }
+    
+          &_usersCard{
+            @include align-items-center;
+            gap: 11px;
+    
+            .user_button{
+              padding: 11.5px 12px 11.5px 12px;
+              border-radius:25px;
+              cursor: pointer;
+              background: linear-gradient(158.34deg, rgba(255, 255, 255, 0.1) 6.53%, rgba(91, 91, 91, 0.1) 92.78%);
+    
+            }
+          }
+          .card_button{
+            border-radius: 25px;
+            padding: 12.5px 5px 12.5px 5px;
+            // padding: 20px 0px;
+            position: relative;
+            cursor: pointer;
+    
+            .count{
+              @include element-center;
+              position: absolute;
+              top: -6px;
+              right: -6px;
+              font-weight: 500;
+              font-size: 13px;
+              line-height: 12px;
+              color: #252c32;
+              background-color: #ffffff;
+              border-radius: 50%;
+              width: 20px;
+              height: 20px;
+            }
+    
+    
+          }
+        }
+  
+      }
+  
+    }
+  }

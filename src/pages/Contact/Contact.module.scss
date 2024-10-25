@@ -1,0 +1,27 @@
+.wrapper {
+    background-color: #00172b;
+    color: #fff;
+
+    &_h1 {
+        display: flex;
+        justify-content: center;
+        padding: 50px 0;
+    }
+
+    &_Grid>div {
+        padding: 30px 0;
+        background-color: #102838 !important;
+        color: #fff;
+        border-radius: 20px;
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            line-height: 30px;
+        }
+
+        img {
+            padding-bottom: 30px;
+        }
+    }
+}

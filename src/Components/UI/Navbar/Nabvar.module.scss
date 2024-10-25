@@ -1,0 +1,19 @@
+@import "styles/mixins.scss";
+
+.header{
+  background-color: #00122A;
+  padding: 30px 0 10px 0;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  &_wrapper{
+    @include direction-column;
+    gap: 30px;
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 17px, 36px, 17px, 36px;
+  }
+}

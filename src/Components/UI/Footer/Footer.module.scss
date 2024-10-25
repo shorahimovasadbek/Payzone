@@ -1,0 +1,119 @@
+@import "styles/mixins.scss";
+
+.footer {
+  background: #00122a;
+  box-shadow: 0px -10px 60px 0px #00D44A1C !important;
+  padding: 50px 0;
+
+  .box {
+    @include justify-content-between;
+    border-width: 0 0 3px 0;
+    border-style: solid;
+    padding: 20px 0;
+    border-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 1.04%,
+      rgba(0, 212, 74, 0.6) 48.94%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    border-image-slice: 0 0 1 0;
+    width: 100%;
+
+    .logo_email_wrapper{
+      @include direction-column;
+      gap: 10px;
+      color: #FCFFFA;
+      font-size: 16px;
+      width: max-content;
+      
+      .email{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        line-height: 17.7px;
+        letter-spacing: 1px;
+      }
+    }
+
+    .pages {
+      display: flex;
+      justify-content: center;
+      gap: 56px;
+      color: #fff;
+
+      ul {
+        @include direction-column;
+        gap: 16px;
+
+        a {
+          color: #AEAEAE;
+          font-size: 16px;
+          &:hover {
+            color: #00d44a;
+          }
+        }
+      }
+
+      .social_medais_wrapper {
+        @include direction-column;
+        gap: 15px;
+        .icons {
+          display: flex;
+          gap: 13px;
+
+          a {
+            padding: 12px 13px;
+            @include element-center;
+            border-radius: 50%;
+            background: linear-gradient(
+              158.34deg,
+              rgba(255, 255, 255, 0.1) 6.53%,
+              rgba(91, 91, 91, 0.1) 92.78%
+            );
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 670px) {
+      @include direction-column;
+      gap: 30px;
+      align-items: center;
+    }
+
+    @media screen and (max-width: 500px) {
+      @include direction-column;
+      gap: 30px;
+      align-items: start;
+
+      .pages{
+        display: flex;
+        justify-content: start;
+      }
+    }
+    @media screen and (max-width: 410px) {
+
+      .pages{
+        @include direction-column;
+        gap: 20px;
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .bottomFooter{
+    color: #AEAEAE;
+    padding: 15px 0;
+    margin-top: 10px;
+
+    @media screen and (max-width: 670px) {
+      text-align: center;
+    }
+    @media screen and (max-width: 500px) {
+      text-align: left;
+    }
+  }
+}

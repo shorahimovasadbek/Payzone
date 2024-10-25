@@ -1,0 +1,261 @@
+@import "/src/styles/mixins.scss";
+@import "/src/styles/functions.scss";
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+
+* {
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Orbitron", sans-serif;
+}
+
+.app{
+  position: relative;
+}
+
+
+input:-internal-autofill-selected {
+  background-color: #00172b !important;
+  background-image: none !important;
+}
+
+.suspense {
+  width: 100%;
+  height: 100vh;
+  @include element-center;
+}
+
+.title {
+  text-align: left;
+  color: #ffffff;
+  padding-top: 70px; // Adjust this value based on the height of your navbar or desired offset
+  margin-top: -70px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-family: Orbitron;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 37.31px;
+  letter-spacing: -0.005em;
+
+  @media screen and (max-width: 500px) {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+}
+
+.main_wrapper {
+  background-color: #00172b;
+  @include direction-column;
+  gap: 80px;
+  padding: 50px 0;
+
+  .little_about {
+    background: url("./Components//assets//images/bgimageAdvert.png") no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    padding: 50px 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgb(0, 0, 0);
+      background: linear-gradient(
+        rgba(0, 18, 42, 0.903),
+        rgba(0, 18, 42, 0.903)
+      );
+      width: 100%;
+      height: 100%;
+    }
+
+    @media screen and (max-width: 700px) {
+      padding: 10px;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    gap: 30px;
+  }
+}
+
+.mySwiper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  padding: 60px 25rem !important;
+
+  .swiper-pagination {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .swiper-pagination-bullet {
+      width: 25px;
+      height: 5px;
+      background: linear-gradient(
+        158.34deg,
+        rgba(255, 255, 255, 0.1) 6.53%,
+        rgba(91, 91, 91, 0.1) 92.78%
+      );
+      border-radius: 3px;
+
+      // Change this to the desired color
+      opacity: 1;
+      &.swiper-pagination-bullet-active {
+        background: linear-gradient(
+          77.5deg,
+          #00d44a -31.33%,
+          #11e35a -19.3%,
+          #0ab847 -4.45%,
+          #0fb849 11.89%,
+          #25b758 29.28%,
+          #00d44a 47.54%,
+          #29fe73 66.2%,
+          #3fff82 81.84%
+        );
+      }
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    padding: 80px 20px !important;
+  }
+  @media screen and (max-width: 1000px) {
+    padding: 80px 0 !important;
+  }
+}
+
+.MuiPaper-root {
+  // background-color: transparent !important;
+  .MuiTable-root {
+    border-collapse: separate !important;
+    border-spacing: 0 10px;
+
+    tbody {
+      width: 100%;
+
+      tr {
+        width: 100%;
+        background: url("./Components/assets/images/image.png") no-repeat;
+        background-size: cover;
+
+        &:nth-child(1) {
+          background: url("./Components/assets/images/background1.png")
+            no-repeat;
+          background-size: cover;
+        }
+
+        &:nth-child(2) {
+          background: url("./Components/assets/images/background2.png")
+            no-repeat;
+          background-size: cover;
+        }
+        &:nth-child(3) {
+          background: url("./Components/assets/images/background3.png")
+            no-repeat;
+          background-size: cover;
+        }
+      }
+    }
+
+    th {
+      border-bottom: #00172b 1px solid;
+
+      @media screen and (max-width: 700px) {
+        gap: 10px;
+        padding: 10px;
+      }
+    }
+
+    td {
+      border-bottom: #00172b 1px solid;
+      @media screen and (max-width: 700px) {
+        padding: 10px;
+      }
+    }
+  }
+}
+
+.MuiTableRow-root tr:first-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.MuiTableRow-root td:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.PhoneInput {
+  .PhoneInputCountry {
+    .PhoneInputCountryIcon {
+      margin-left: 10px;
+      width: 24px;
+      height: 18px;
+    }
+    .PhoneInputCountrySelectArrow {
+      display: none;
+    }
+  }
+}
+
+.rccs{
+  margin: 0 !important;
+}
+
+/* Default scrollbar width */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(100, 99, 99);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    77.5deg,
+    #00d44a -31.33%,
+    #11e35a -19.3%,
+    #0ab847 -4.45%,
+    #0fb849 11.89%,
+    #25b758 29.28%,
+    #00d44a 47.54%,
+    #29fe73 66.2%,
+    #3fff82 81.84%
+  );
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    77.5deg,
+    #00d44a -31.33%,
+    #11e35a -19.3%,
+    #0ab847 -4.45%,
+    #0fb849 11.89%,
+    #25b758 29.28%,
+    #00d44a 47.54%,
+    #29fe73 66.2%,
+    #3fff82 81.84%
+  );
+}
