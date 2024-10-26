@@ -68,7 +68,6 @@ const Header = () => {
   }, [searchQuery]);
 
   const handleSuggestionClick = (suggestion) => {
-    console.log(suggestion);
     
     setSearchQuery(suggestion)
     if (suggestion.endsWith('UC')) {

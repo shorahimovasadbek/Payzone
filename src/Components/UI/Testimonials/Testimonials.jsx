@@ -27,8 +27,6 @@ const Testimonials = () => {
   const { t } = useTranslation("common");
   const width1000px = useMediaQuery("max-width:1000px");
   const { data: feedbacks } = useGetFeedbacks();
-  // console.log(feedbacks.data, 'bu feeeeedbaskcs');
-
   return (
     <>
       <div

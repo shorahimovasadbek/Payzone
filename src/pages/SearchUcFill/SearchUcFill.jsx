@@ -72,6 +72,7 @@ const SearchUcFill = () => {
             let encoded = base64_encode(`ac.order_id=${data.data.id};m=${m};a=${a}`);
             window.location.href = `https://checkout.paycom.uz/${encoded}`
             setOpenModal(true)
+            
         },
         onError: (error) => {
             if (error.status === 401) {
