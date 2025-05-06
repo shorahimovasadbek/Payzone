@@ -35,8 +35,11 @@ const SingleGame = () => {
   const location = useLocation()
   const queryParams = new URLSearchParams(location.search)
   const name = queryParams.get('name')
+  const type = queryParams.get('type')
 
-  const [openModal, setOpenModal] = useState(false);
+
+  const [openModal1, setOpenModal1] = useState(false);
+  const [openModal2, setOpenModal2] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState("uzs");
   const { openLoginModal } = useModal()
 
@@ -60,18 +63,28 @@ const SingleGame = () => {
           }
         }
       );
-      let m = '67062426e51de1c6a3a51913'
-      let a = data.data.amount * 100
-      let encoded = base64_encode(`ac.order_id=${data.data.id};m=${m};a=${a}`);
-      window.location.href = `https://checkout.paycom.uz/${encoded}`
-      setOpenModal(true)
+
+      
+        let m = '67062426e51de1c6a3a51913'
+        let a = data.data.amount * 100
+        let encoded = base64_encode(`ac.order_id=${data.data.id};m=${m};a=${a}`);
+        window.location.href = `https://checkout.paycom.uz/${encoded}`
+
+      setTimeout(() => {
+        if (type == 'ID' || type == "account" || type == null) {
+          setOpenModal1(true)
+        } else {
+          setOpenModal2(true)
+        }
+
+      }, 2000);
     },
     onError: (error) => {
-      if(error.status === 401){
+      if (error.status === 401) {
         // toast.error(error.data.message, { autoClose: 2000 });
         localStorage.removeItem('JWT_Pay')
         openLoginModal()
-      }else{
+      } else {
         toast.error(error.data.message,
           {
             autoClose: 3000,
@@ -100,16 +113,14 @@ const SingleGame = () => {
   //   return firstError.join(' ');
   // };
 
-  const handleClose = () => setOpenModal(false);
+  const handleClose1 = () => setOpenModal1(false);
+  const handleClose2 = () => setOpenModal2(false);
   const handleCheckSignInUp = (id, price) => {
     if (localStorage.getItem('JWT_Pay')) {
       mutation.mutate({
         product_id: id,
         amount: +(price)
       });
-      setTimeout(() => {
-        // setOpenModal(true)
-      }, 3000);
     } else {
       openLoginModal()
     }
@@ -239,12 +250,12 @@ const SingleGame = () => {
       <MarqueeElem />
       <FAQ />
 
-      <Modal open={openModal} handleClose={handleClose}>
+      <Modal open={openModal1} handleClose={handleClose1}>
         <div className={styles.login_wrapper}>
           <h1 className={styles.title}>ID raqamingizni kiriting</h1>
           <span
             className={styles.cancelIcon}
-            onClick={() => setOpenModal(false)}
+            onClick={() => setOpenModal1(false)}
           >
             <CancelIcon />
           </span>
@@ -274,6 +285,42 @@ const SingleGame = () => {
             </div>
             <div className={styles.img_wrapper}>
               <img src={img2} alt="guide" />
+            </div>
+          </div>
+        </div>
+      </Modal>
+
+      <Modal open={openModal2} handleClose={handleClose2}>
+        <div className={styles.login_wrapper}>
+          <h1 className={styles.title}>Accountni kiriting!</h1>
+          <span
+            className={styles.cancelIcon}
+            onClick={() => setOpenModal2(false)}
+          >
+            <CancelIcon />
+          </span>
+
+          <form action="">
+            <div className={styles.inputs}>
+              <div className={styles.input}>
+                <input type="text" placeholder="Account" />
+              </div>
+            </div>
+
+            <Button
+              variant="contained"
+              sx={{ borderRadius: "10px", fontSize: "20px" }}
+            >
+              {t("Qabul qilish")}
+            </Button>
+          </form>
+
+          <div className={styles.img_content}>
+            <span className={styles.line}>
+              <Line />
+            </span>
+            <div className={styles.guide}>
+              <Exclamation />
             </div>
           </div>
         </div>
